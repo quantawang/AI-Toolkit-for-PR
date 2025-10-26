@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="zh-CN" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-brain'%3E%3Cpath d='M9.5 2A2.5 2.5 0 0 1 12 4.5v1.13a1 1 0 0 0 .5 1.71 2.5 2.5 0 0 1 2.5 2.5c0 .52-.17.99-.44 1.37'/%3E%3Cpath d='M14.5 2A2.5 2.5 0 0 0 12 4.5v1.13a1 1 0 0 1-.5 1.71 2.5 2.5 0 0 0-2.5 2.5c0 .52.17.99.44 1.37'/%3E%3Cpath d='M5 18H3.5a2.5 2.5 0 0 1-2.5-2.5V14c0-1.1.9-2 2-2h1'/%3E%3Cpath d='M19 18h1.5a2.5 2.5 0 0 0 2.5-2.5V14c0-1.1-.9-2-2-2h-1'/%3E%3Cpath d='M12 13.3a1 1 0 0 0-1 1V16a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-1.7a1 1 0 0 0-1-1Z'/%3E%3Cpath d='M9.55 13.44a2.5 2.5 0 0 1 0 4.12'/%3E%3Cpath d='M14.45 13.44a2.5 2.5 0 0 0 0 4.12'/%3E%3Cpath d='M12 22a2.5 2.5 0 0 1-2.5-2.5c0-.52.17.99-.44-1.37'/%3E%3Cpath d='M12 22a2.5 2.5 0 0 0 2.5-2.5c0-.52-.17.99-.44-1.37'/%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>传播工作流 AI 武器库 - 科技传播团队专用</title>
+    
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 内联自定义样式和动画 -->
+    <style>
+        /* 基础样式应用 */
+        body {
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+
+        /* 自定义动画 */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* 导航栏模糊效果 */
+        .backdrop-blur-md {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <!-- SVG Icon: Brain -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v1.13a1 1 0 0 0 .5 1.71 2.5 2.5 0 0 1 2.5 2.5c0 .52-.17.99-.44 1.37"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v1.13a1 1 0 0 1-.5 1.71 2.5 2.5 0 0 0-2.5 2.5c0 .52.17.99.44 1.37"/><path d="M5 18H3.5a2.5 2.5 0 0 1-2.5-2.5V14c0-1.1.9-2 2-2h1"/><path d="M19 18h1.5a2.5 2.5 0 0 0 2.5-2.5V14c0-1.1-.9-2-2-2h-1"/><path d="M12 13.3a1 1 0 0 0-1 1V16a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-1.7a1 1 0 0 0-1-1Z"/><path d="M9.55 13.44a2.5 2.5 0 0 1 0 4.12"/><path d="M14.45 13.44a2.5 2.5 0 0 0 0 4.12"/><path d="M12 22a2.5 2.5 0 0 1-2.5-2.5c0-.52.17.99-.44-1.37"/><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5c0-.52-.17.99-.44-1.37"/></svg>
+                    <span class="text-xl font-bold text-slate-900">传播 AI 武器库</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#intro" class="text-slate-600 hover:text-blue-600 transition-colors">概览</a>
+                    <a href="#workflow" class="text-slate-600 hover:text-blue-600 transition-colors">工作流程</a>
+                    <a href="#tools" class="text-slate-600 hover:text-blue-600 transition-colors">AI工具库</a>
+                    <a href="#comparison" class="text-slate-600 hover:text-blue-600 transition-colors">能力对比</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="intro" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6">传播工作流 AI 武器库</h1>
+            <p class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+                专为传播团队打造的「AI武器库」，覆盖洞察分析到内容生产等全流程。<br/>
+                为每个环节高效赋能，推荐全球最佳 AI 工具。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#workflow" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 text-lg rounded-md">
+                    查看工作流
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#tools" class="inline-flex items-center justify-center border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold px-8 py-3 text-lg rounded-md">
+                    直达工具库
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PR Workflow -->
+    <section id="workflow" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">传播工作流 AI 赋能地图</h2>
+            <div class="grid md:grid-cols-5 gap-6">
+                <!-- 洞察分析 -->
+                <div class="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">洞察分析</h3>
+                    <p class="text-sm text-slate-600 mb-3">舆情监测、报告整理、趋势预测</p>
+                    <div class="text-xs text-blue-600 font-medium">
+                        <div>• <a href="https://perplexity.ai" target="_blank" class="hover:underline">Perplexity</a></div>
+                        <div>• <a href="https://notebooklm.google.com" target="_blank" class="hover:underline">NotebookLM</a></div>
+                        <div>• <a href="https://hunyuan.tencent.com" target="_blank" class="hover:underline">混元助手</a></div>
+                    </div>
+                </div>
+
+                <!-- 策略规划 -->
+                <div class="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">策略规划</h3>
+                    <p class="text-sm text-slate-600 mb-3">传播策略、受众分析、渠道选择</p>
+                    <div class="text-xs text-blue-600 font-medium">
+                        <div>• <a href="https://claude.ai" target="_blank" class="hover:underline">Claude</a></div>
+                        <div>• <a href="https://chat.openai.com" target="_blank" class="hover:underline">GPT-4</a></div>
+                        <div>• <a href="https://hunyuan.tencent.com" target="_blank" class="hover:underline">混元助手</a></div>
+                    </div>
+                </div>
+
+                <!-- 创意构思 -->
+                <div class="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 7c0-2.2-1.8-4-4-4S10 4.8 10 7c0 2 .3 3.2 1.5 4.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">创意构思</h3>
+                    <p class="text-sm text-slate-600 mb-3">创意脑暴、话题策划、角度挖掘</p>
+                    <div class="text-xs text-blue-600 font-medium">
+                        <div>• <a href="https://gemini.google.com" target="_blank" class="hover:underline">Gemini</a></div>
+                        <div>• <a href="https://claude.ai" target="_blank" class="hover:underline">Claude</a></div>
+                        <div>• <a href="https://hunyuan.tencent.com" target="_blank" class="hover:underline">混元助手</a></div>
+                    </div>
+                </div>
+
+                <!-- 内容生产 -->
+                <div class="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">内容生产</h3>
+                    <p class="text-sm text-slate-600 mb-3">文案、设计、视频制作</p>
+                    <div class="text-xs text-blue-600 font-medium">
+                        <div>• 多模态工具</div>
+                        <div>• 专业生成器</div>
+                        <div>• 混元系列</div>
+                    </div>
+                </div>
+
+                <!-- 传播执行 -->
+                <div class="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">传播执行</h3>
+                    <p class="text-sm text-slate-600 mb-3">多渠道分发、效果监测</p>
+                    <div class="text-xs text-blue-600 font-medium">
+                        <div>• <a href="https://zapier.com" target="_blank" class="hover:underline">自动化工具</a></div>
+                        <div>• <a href="https://lookerstudio.google.com" target="_blank" class="hover:underline">数据分析</a></div>
+                        <div>• <a href="https://hunyuan.tencent.com" target="_blank" class="hover:underline">混元助手</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- AI Tools Arsenal -->
+    <section id="tools" class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">传播 AI 工具武器库</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-3xl mx-auto">按传播工作流环节分类，每个模块提供全球最优工具推荐 + 腾讯混元能力对比</p>
+            
+            <!-- 洞察分析工具 -->
+            <div class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">洞察分析工具</h3>
+                    <span class="ml-3 text-sm text-slate-500">舆情监测 • 报告整理 • 趋势预测</span>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Perplexity -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Perplexity</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">实时搜索+AI分析，最适合收集最新行业报告和趋势洞察</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 实时性强 • 引用准确</div>
+                        <a href="https://perplexity.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- NotebookLM -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">NotebookLM</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">Google出品，擅长分析大量文档，生成洞察报告</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 文档分析 • 自动总结</div>
+                        <a href="https://notebooklm.google.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- Consensus -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Consensus</h4>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded">部分付费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">基于学术论文的AI搜索，提供权威数据支撑</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 学术权威 • 数据可信</div>
+                        <a href="https://consensus.app" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- 腾讯混元 -->
+                    <div class="p-6 border-2 border-blue-200 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-blue-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">腾讯混元</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">内网免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">内部数据安全，支持文档分析和趋势预测</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 数据安全 • 内部合规</div>
+                        <a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 创意构思工具 -->
+            <div class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 7c0-2.2-1.8-4-4-4S10 4.8 10 7c0 2 .3 3.2 1.5 4.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">创意构思工具</h3>
+                    <span class="ml-3 text-sm text-slate-500">创意脑暴 • 话题策划 • 角度挖掘</span>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Claude -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Claude</h4>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded">部分付费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">最强创意思维，擅长多角度分析和创意发散</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 创意思维 • 逻辑清晰</div>
+                        <a href="https://claude.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- Gemini -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Gemini</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">Google出品，多模态创意，支持图文结合脑暴</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 多模态 • 创意丰富</div>
+                        <a href="https://gemini.google.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- GPT-4 -->
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">GPT-4</h4>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">付费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">综合能力最强，适合复杂创意策划和执行</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 综合能力 • 执行力强</div>
+                        <a href="https://chat.openai.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+
+                    <!-- 腾讯混元 -->
+                    <div class="p-6 border-2 border-blue-200 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-blue-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">腾讯混元</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">内网免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">中文创意优化，理解本土文化和传播语境</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 中文优化 • 本土化</div>
+                        <a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内容生产工具 -->
+            <div class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">内容生产工具</h3>
+                    <span class="ml-3 text-sm text-slate-500">文案撰写 • 视觉设计 • 视频制作</span>
+                </div>
+
+                <!-- 文案生成 -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-4">📝 文案生成</h4>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Jasper AI</h5>
+                            <p class="text-sm text-slate-600 mb-2">专业营销文案生成</p>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">付费</span>
+                            <div class="mt-2"><a href="https://www.jasper.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Copy.ai</h5>
+                            <p class="text-sm text-slate-600 mb-2">多场景文案模板</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://www.copy.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Writesonic</h5>
+                            <p class="text-sm text-slate-600 mb-2">SEO优化文案</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://writesonic.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+                            <h5 class="font-medium mb-2">腾讯混元</h5>
+                            <p class="text-sm text-slate-600 mb-2">中文文案优化</p>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">内网免费</span>
+                            <div class="mt-2"><a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图像生成 -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-4">🎨 图像生成</h4>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Midjourney</h5>
+                            <p class="text-sm text-slate-600 mb-2">最强艺术创作</p>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">付费</span>
+                            <div class="mt-2"><a href="https://www.midjourney.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">DALL-E 3</h5>
+                            <p class="text-sm text-slate-600 mb-2">精准文本理解</p>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">付费</span>
+                            <div class="mt-2"><a href="https://chat.openai.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Stable Diffusion</h5>
+                            <p class="text-sm text-slate-600 mb-2">开源可控制</p>
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">免费</span>
+                            <div class="mt-2"><a href="https://stability.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+                            <h5 class="font-medium mb-2">腾讯混元</h5>
+                            <p class="text-sm text-slate-600 mb-2">中文提示优化</p>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">内网免费</span>
+                            <div class="mt-2"><a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频生成 -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-4">🎬 视频生成</h4>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Runway ML</h5>
+                            <p class="text-sm text-slate-600 mb-2">专业视频编辑</p>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">付费</span>
+                            <div class="mt-2"><a href="https://runwayml.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Pika Labs</h5>
+                            <p class="text-sm text-slate-600 mb-2">文本生成视频</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://pika.art" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Synthesia</h5>
+                            <p class="text-sm text-slate-600 mb-2">AI虚拟主播</p>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">付费</span>
+                            <div class="mt-2"><a href="https://www.synthesia.io" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+                            <h5 class="font-medium mb-2">腾讯混元</h5>
+                            <p class="text-sm text-slate-600 mb-2">视频理解分析</p>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">内网免费</span>
+                            <div class="mt-2"><a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 语音转写与字幕 -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-4">🗣️ 语音转写与字幕（会议纪要/采访）</h4>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Otter.ai</h5>
+                            <p class="text-sm text-slate-600 mb-2">会议自动转写与摘要，支持多说话人</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://otter.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Notta</h5>
+                            <p class="text-sm text-slate-600 mb-2">录音转文字，支持中英双语与字幕导出</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://www.notta.ai/zh" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Fireflies.ai</h5>
+                            <p class="text-sm text-slate-600 mb-2">在线会议纪要机器人，自动总结与行动项</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://fireflies.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+                            <h5 class="font-medium mb-2">腾讯会议 · 智能纪要</h5>
+                            <p class="text-sm text-slate-600 mb-2">会议录制转写与要点归纳，企业级安全</p>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">内网免费</span>
+                            <div class="mt-2"><a href="https://meeting.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PPT 生成 -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-4">📊 PPT 生成</h4>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Gamma</h5>
+                            <p class="text-sm text-slate-600 mb-2">一键生成演示文稿</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://gamma.app" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Tome</h5>
+                            <p class="text-sm text-slate-600 mb-2">故事化演示生成</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://tome.app" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border rounded-lg">
+                            <h5 class="font-medium mb-2">Beautiful.ai</h5>
+                            <p class="text-sm text-slate-600 mb-2">智能排版与模板</p>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">部分付费</span>
+                            <div class="mt-2"><a href="https://www.beautiful.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a></div>
+                        </div>
+                        <div class="p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+                            <h5 class="font-medium mb-2">腾讯混元</h5>
+                            <p class="text-sm text-slate-600 mb-2">内网安全生成 PPT 草稿</p>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">内网免费</span>
+                            <div class="mt-2"><a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 监测评估工具（舆情分析） -->
+            <div class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">监测评估工具（舆情分析）</h3>
+                    <span class="ml-3 text-sm text-slate-500">舆情监测 • 趋势研判 • 效果评估</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Perplexity</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">实时检索与引用，快速汇总多源舆情要点</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 实时性强 • 引用可靠</div>
+                        <a href="https://perplexity.ai" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Talkwalker</h4>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">付费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">品牌与舆情监测行业标准工具，海量渠道覆盖</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 覆盖广 • 可视化丰富</div>
+                        <a href="https://www.talkwalker.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+                    <div class="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">Brandwatch</h4>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">付费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">社媒洞察与情绪分析，支持高度定制报表</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 社媒分析强 • 报表灵活</div>
+                        <a href="https://www.brandwatch.com" target="_blank" class="text-sm text-blue-600 hover:underline">访问工具 →</a>
+                    </div>
+                    <div class="p-6 border-2 border-blue-200 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-blue-50">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-slate-900">腾讯混元</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">内网免费</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-3">结合内部数据安全策略，支持要点提取与趋势分析</p>
+                        <div class="text-xs text-blue-600 mb-3">⭐ 数据安全 • 合规可控</div>
+                        <a href="https://hunyuan.tencent.com" target="_blank" class="text-sm text-blue-700 hover:underline">访问工具 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内部平台推荐 -->
+            <div class="mt-12 p-8 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-2xl">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-300"><path d="m12 3-1.9 5.8-5.8 1.9 5.8 1.9 1.9 5.8 1.9-5.8 5.8-1.9-5.8-1.9z"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2">腾讯内部 AI 平台矩阵</h3>
+                    <p class="text-blue-100 mb-6">数据安全 • 合规使用 • 免费体验</p>
+                    <div class="grid md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                        <a href="https://hunyuan.tencent.com" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-colors">
+                            <h4 class="font-bold mb-1">腾讯混元</h4>
+                            <p class="text-sm text-blue-100">通用大模型平台</p>
+                        </a>
+                        <a href="https://llmchat.woa.com" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-colors">
+                            <h4 class="font-bold mb-1">Venus 平台</h4>
+                            <p class="text-sm text-blue-100">多模型集成体验</p>
+                        </a>
+                        <a href="https://meeting.tencent.com" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-colors">
+                            <h4 class="font-bold mb-1">腾讯会议</h4>
+                            <p class="text-sm text-blue-100">高效沟通协作</p>
+                        </a>
+                        <a href="https://docs.qq.com" target="_blank" class="bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-colors">
+                            <h4 class="font-bold mb-1">内容创作套件</h4>
+                            <p class="text-sm text-blue-100">专业内容生产</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Capability Comparison -->
+    <section id="comparison" class="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">能力对比与选择指南</h2>
+
+            
+            <!-- 对比表格 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">能力维度</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-900">Claude</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-900">GPT-4</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-900">Gemini</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-blue-900 bg-blue-50">腾讯混元</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">中文理解</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">创意思维</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">数据分析</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">多模态能力</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">数据安全</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium text-slate-900">成本效益</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐</td>
+                                <td class="px-6 py-4 text-center">⭐⭐⭐⭐</td>
+                                <td class="px-6 py-4 text-center bg-blue-50">⭐⭐⭐⭐⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- AI 传播实战素材库 -->
+    <section id="materials" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">AI 传播实战素材库</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-3xl mx-auto">直观有用：大模型能力一览 · 发布会集锦 · 全球AI内容素材库</p>
+
+            <!-- 大模型能力库 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900">大模型能力库</h3>
+                    <span class="ml-3 text-sm text-slate-500">覆盖 OpenAI / Gemini / 通义 / Claude / 混元 等</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://openai.com/index/gpt-4o-mini-omni/" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">OpenAI 能力一览</h4>
+                        <p class="text-sm text-slate-600">GPT-4/4o/omni，文生图/视频、多模态、Assistants、API</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://ai.google.dev/gemini-docs" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Google Gemini 能力一览</h4>
+                        <p class="text-sm text-slate-600">多模态理解与生成、NotebookLM、开发文档与评测</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://tongyi.aliyun.com/" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">通义千问 能力一览</h4>
+                        <p class="text-sm text-slate-600">通义大模型、通义万相、通义听悟、产品矩阵</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.anthropic.com/news" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Claude 能力与更新</h4>
+                        <p class="text-sm text-slate-600">Claude 3/3.5、思维链、评测与使用建议</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://hunyuan.tencent.com" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">腾讯混元 能力一览</h4>
+                        <p class="text-sm text-slate-600">中文理解、文案生成、多模态、内网安全与合规</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.mosaicml.com/blog/mmlu-leaderboard" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">权威评测与榜单</h4>
+                        <p class="text-sm text-slate-600">MMLU、GSM8K、MT-Bench 等主流评测汇总</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- AI 高光发布会集锦 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900">AI 高光发布会集锦</h3>
+                    <span class="ml-3 text-sm text-slate-500">OpenAI、Google、Anthropic、阿里、腾讯 等</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.youtube.com/watch?v=DQacCB9tDaw" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">OpenAI 发布会精华</h4>
+                        <p class="text-sm text-slate-600">GPT-4o/omni 现场演示与关键能力</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.youtube.com/watch?v=JzIB3LJQ6jY" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Google I/O AI 精华</h4>
+                        <p class="text-sm text-slate-600">Gemini 多模态、生成式搜索、NotebookLM</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.youtube.com/@anthropicai" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Anthropic 发布与演示</h4>
+                        <p class="text-sm text-slate-600">Claude 3.5/Opus 演示与最新进展</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://tongyi.aliyun.com/wanxiang/" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">阿里通义发布会集锦</h4>
+                        <p class="text-sm text-slate-600">通义模型、万相/听悟更新与演示</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://hunyuan.tencent.com" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">腾讯混元能力发布</h4>
+                        <p class="text-sm text-slate-600">混元模型能力发布与案例合集</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.youtube.com/results?search_query=ai+keynote+highlights" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">更多发布会精华</h4>
+                        <p class="text-sm text-slate-600">全球主流 AI 发布会高光整合</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 全球 AI 内容素材库 -->
+            <div class="mb-4">
+                <div class="flex items-center mb-4">
+                    <h3 class="text-2xl font-bold text-slate-900">全球 AI 内容素材库</h3>
+                    <span class="ml-3 text-sm text-slate-500">文生图 / 文生视频 / 多模态代表作</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://openai.com/sora" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">OpenAI Sora 精选</h4>
+                        <p class="text-sm text-slate-600">知名示例视频与官方样片集合</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.midjourney.com/showcase/recent/" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Midjourney 展示墙</h4>
+                        <p class="text-sm text-slate-600">高质量文生图样例合集</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://runwayml.com/showcase/" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Runway 展示与模板</h4>
+                        <p class="text-sm text-slate-600">文本转视频、风格化与案例库</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://pika.art/explore" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Pika 社区精选</h4>
+                        <p class="text-sm text-slate-600">社区优质视频合辑</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.synthesia.io/examples" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">Synthesia 示例</h4>
+                        <p class="text-sm text-slate-600">虚拟主播与应用案例</p>
+                    </a>
+                    <a class="p-5 border rounded-lg hover:shadow transition" href="https://www.youtube.com/results?search_query=best+ai+generated+videos" target="_blank">
+                        <h4 class="font-semibold text-slate-900 mb-1">更多灵感素材</h4>
+                        <p class="text-sm text-slate-600">全球精选 AI 视觉内容灵感</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 反馈与建议（置于底部） -->
+    <section id="feedback" class="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4">反馈与建议</h2>
+            <div class="max-w-3xl mx-auto bg-slate-50 rounded-lg p-6">
+                <p class="text-slate-600 mb-4">发现更好的工具？有使用心得？欢迎分享！</p>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+                        <span class="text-sm text-slate-600">邮件：ai-tools@tencent.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 mr-2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <span class="text-sm text-slate-600">企业微信：传播AI工具群</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600 mr-2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        <span class="text-sm text-slate-600">内网文档：更新日志与路线图</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v1.13a1 1 0 0 0 .5 1.71 2.5 2.5 0 0 1 2.5 2.5c0 .52-.17.99-.44 1.37"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v1.13a1 1 0 0 1-.5 1.71 2.5 2.5 0 0 0-2.5 2.5c0 .52.17.99.44 1.37"/><path d="M5 18H3.5a2.5 2.5 0 0 1-2.5-2.5V14c0-1.1.9-2 2-2h1"/><path d="M19 18h1.5a2.5 2.5 0 0 0 2.5-2.5V14c0-1.1-.9-2-2-2h-1"/><path d="M12 13.3a1 1 0 0 0-1 1V16a1 1 0 0 0 1 1h0a1 1 0 0 0 1-1v-1.7a1 1 0 0 0-1-1Z"/><path d="M9.55 13.44a2.5 2.5 0 0 1 0 4.12"/><path d="M14.45 13.44a2.5 2.5 0 0 0 0 4.12"/><path d="M12 22a2.5 2.5 0 0 1-2.5-2.5c0-.52.17.99-.44-1.37"/><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5c0-.52-.17.99-.44-1.37"/></svg>
+                    <span class="text-xl font-bold">传播 AI 武器库</span>
+                </div>
+                <p class="text-slate-400 mb-6">腾讯科技传播团队专用 AI 工具指南</p>
+                <p class="text-sm text-slate-500">
+                    © 2024 腾讯科技传播部 • 持续更新中 • 让 AI 成为传播工作的得力助手
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
